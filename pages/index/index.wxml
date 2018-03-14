@@ -44,7 +44,7 @@
                                         <view>
                                             <view data-index="{{index}}" data-parentindex="{{commodityIndex}}" data-add="{{itemDetial.add==''?0:itemDetial.add}}" data-surplus="{{itemDetial.surplus}}" class="commodity-minus pos_absolute {{itemDetial.add!=0 ? '' : 'hide'}}" bindtap="commodityMinus">-</view>
                                             <text data-index="{{index}}" class="commodity-num pos_absolute {{itemDetial.add!=0 ? '' : 'hide'}}">{{itemDetial.add}}</text>
-                                            <view data-index="{{index}}" data-parentindex="{{commodityIndex}}" data-add="{{itemDetial.add==''?0:itemDetial.add}}" data-surplus="{{itemDetial.surplus}}" bindtap="commodityPlus" class="commodity-plus pos_absolute">+</view>
+                                            <view data-index="{{index}}" data-parentindex="{{commodityIndex}}" data-add="{{itemDetial.add==''?0:itemDetial.add}}" data-surplus="{{itemDetial.surplus}}" bindtap="commodityPlus" class="commodity-plus pos_absolute {{itemDetial.add>=itemDetial.surplus?'no-active':''}}">+</view>
                                         </view>
                                     </view>
                                 </view>
@@ -56,25 +56,44 @@
         </view>
     </view>
 
-    <view class="modal-pop pos_fixed"></view>
+    <view class="modal-pop pos_fixed hide"></view>
 
     <view class="mshop-footer pos_relative">
-        <view class="pos_absolute shopCart">
-          <view class="mshopCartTitle">
+        <scroll-view scroll-y scroll-with-animation="{{true}}" class="pos_absolute shopCart">
+          <view class="mshopCartTitle hide">
             <view class="fr pos_relative">
               <image class="pos_absolute" style="width:24rpx;height:23rpx;left:-30rpx;top:20rpx;" src="../../images/remove.png" mode="aspectFit" lazy-load="{{true}}" /> 
               清空
             </view>
-            
             <text class="fl">冰箱</text>
           </view>
-        </view>
+
+          <view class="mshopCartMain">
+             <view class="specialOfferTitle hide">
+              <text>特价商品</text>
+            </view> 
+            <view class="specialOfferDetial hide">
+              <block>
+                <view class="pos_relative specialOfferList">
+                  <text class="specialOfferInformation">星巴克星冰乐咖啡味281ml</text>
+                  <text class="pos_absolute mshopCarPrice">￥12</text>
+                  <view class="commodity-minus cartMinus pos_absolute">-</view>
+                  <text class="commodity-num cartNum pos_absolute">1</text>
+                  <view class="commodity-plus cartPlus pos_absolute">+</view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </scroll-view>
 
         <view class="shopping-img pos_absolute">
             <image src="../../images/shopping.png" mode="aspectFit" lazy-load="{{true}}" />
         </view>
-        <view>
-            <text class="footer-text">请选择商品</text>
+        <view class="pos_relative">
+             <text class="footer-text" wx:if="{{commoditUpdate.length<=0}}">请选择商品</text> 
+             <text class="footer-text" wx:else bindtap="cartView">合计：0.00</text> 
+            <!-- <text class="offer-text">合计：28.5</text>
+            <text class="offer pos_absolute">优惠:16.5</text> -->
             <button class="mshop-submit fr">结算</button>
         </view>
     </view>

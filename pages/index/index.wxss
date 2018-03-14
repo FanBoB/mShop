@@ -134,6 +134,9 @@
   text-indent: 0;
   color: #fff;
 }
+.no-active{
+  background: #ccc;
+}
 
 .commodity-plus {
   right: 0rpx;
@@ -144,9 +147,23 @@
   right: 100rpx;
   top: 1rpx;
 }
-
 .commodity-num {
   right: 64rpx;
+  top: -1rpx;
+}
+
+.cartMinus{
+  right: 137rpx;
+  top: 1rpx;
+}
+.cartPlus{
+  right: 30rpx;
+  top: 1rpx;
+}
+.cartNum{
+  width:60rpx;
+  right: 78rpx;
+  text-align: center;
   top: -1rpx;
 }
 
@@ -190,6 +207,16 @@
   font-size: 34rpx;
   line-height: 102rpx;
 }
+.offer-text{
+  margin-left: 174rpx;
+  font-size: 34rpx;
+  line-height: 80rpx;
+}
+.offer{
+  bottom: -10rpx;
+  left: 174rpx;
+  color: #5f5f5f;
+}
 .modal-pop {
   left: 0;
   right: 0;
@@ -216,6 +243,23 @@
 .mshopCartTitle view, .mshopCartTitle text{
   font-size: 22rpx;
 }
-.shopCart{
-  padding-bottom: 40rpx;
+.specialOfferTitle{
+  font-size: 18rpx;
+  color: #8eac6f;
+  text-indent: 30rpx;
+  line-height: 81rpx;
+}
+.specialOfferInformation{
+  padding-left: 30rpx;
+}
+.specialOfferList{
+  line-height: 54rpx;
+  margin-bottom:26rpx;
+}
+.mshopCarPrice{
+  right: 33%;
+  color: #e6554e;
+}
+.offer{
+  font-size: 18rpx;
 }

@@ -237,5 +237,9 @@ Page({
       return;
     }
     // console.log(this.data.commoditUpdate)
+  },
+  cartView:function(event){
+    let commoditUpdateLenth = this.data.commoditUpdate.length;
+    // if()
   }
 })
