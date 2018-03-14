@@ -1,0 +1,43 @@
+/**app.wxss**/
+
+page {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-size: 24rpx;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.pos_relative {
+  position: relative;
+}
+
+.pos_absolute {
+  position: absolute;
+}
+
+.pos_fixed{
+  position: fixed;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

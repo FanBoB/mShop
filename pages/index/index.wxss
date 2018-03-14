@@ -1,0 +1,221 @@
+/**index.wxss**/
+
+.mshop-header {
+  width: 100%;
+  height: 84rpx;
+  border: 1px solid #dedede;
+  border-width: 0 0 1px 0;
+}
+
+.nav-active {
+  font-weight: bold;
+}
+
+.mshop-header view {
+  padding: 20rpx;
+}
+
+.container .mshop-container {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.mshop-bar {
+  margin-left: 20rpx;
+}
+
+.mshop-bar-left {
+  width: 170rpx; /*230rpx*/
+  background: #f4f4f4;
+  text-indent: 24rpx;
+}
+
+.mshop-bar-left view {
+  border-bottom: 1rpx solid #dfdfdf;
+}
+
+.mshop-bar-title, .mshop-bar-left view {
+  height: 84rpx;
+  line-height: 84rpx;
+}
+
+.mshop-bar-right {
+  width: 580rpx;
+}
+
+.bar-active {
+  background: #fff;
+  font-weight: bold;
+}
+
+.color-red {
+  color: #f00;
+}
+
+.icon-num {
+  right: 19rpx;
+  top: 22rpx;
+  padding: 0 13rpx;
+  text-indent: 0;
+  text-align: center;
+  background: #f00;
+  color: #fff;
+  border-radius: 100%;
+  line-height: 34rpx;
+}
+
+.mshop-scroll {
+  height: 100%;
+}
+
+.mshop-bar-title {
+  font-weight: bold;
+}
+
+.bar-border-left {
+  width: 10rpx;
+  height: 30%;
+  border-left: 4rpx solid #7fae68;
+  margin-top: 28rpx;
+}
+
+.mshop-title-tips {
+  color: #959595;
+}
+
+.commodity {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-top: 46rpx;
+}
+
+.commodity-img {
+  width: 146rpx;
+  height: 146rpx;
+  border: 1rpx solid #d9d9d9;
+}
+
+.commodity-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.commodity-detail {
+  width: 70%;
+}
+
+.commodity-detail-body {
+  width: 88%;
+}
+
+.commodity-title {
+  font-weight: bold;
+  font-size: 26rpx;
+  margin-bottom: 15rpx;
+}
+
+.commodity-price {
+  margin-top: 10rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  text-indent: -6rpx;
+}
+
+.commodity-plus, .commodity-minus {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: #7aa667;
+  text-align: center;
+  line-height: 41rpx;
+  text-indent: 0;
+  color: #fff;
+}
+
+.commodity-plus {
+  right: 0rpx;
+  top: 1rpx;
+}
+
+.commodity-minus {
+  right: 100rpx;
+  top: 1rpx;
+}
+
+.commodity-num {
+  right: 64rpx;
+  top: -1rpx;
+}
+
+.mshop-footer {
+  width: 100%;
+  height: 120rpx;
+  border-top: 1rpx solid #f4f4f4;
+  background: #fff;
+}
+
+.shopping-img {
+  width: 112rpx;
+  height: 112rpx;
+  left: 40rpx;
+  top: -28rpx;
+}
+
+.shopping-img image {
+  width: 100%;
+  height: 100%;
+  left: 40rpx;
+  bottom: 19rpx;
+}
+
+.mshop-submit {
+  width: 240rpx;
+  height: 102rpx;
+  line-height: 102rpx;
+  border: none;
+  background: #bebebe;
+  color: #fff;
+  border-radius: 0;
+}
+
+.mshop-submit::after {
+  border: none;
+}
+
+.footer-text {
+  margin-left: 174rpx;
+  font-size: 34rpx;
+  line-height: 102rpx;
+}
+.modal-pop {
+  left: 0;
+  right: 0;
+  top:0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.4;
+}
+.shopCart{
+  width: 100%;
+  max-height: 574rpx;
+  background: #fff;
+  bottom:104rpx;
+}
+.mshopCartTitle{
+  height: 66rpx;
+  line-height: 66rpx;
+  background: #f4f4f4;
+  padding: 0 30rpx;
+}
+.mshopCartTitle view, .mshopCartTitle text{
+  font-size: 22rpx;
+}
+.shopCart{
+  padding-bottom: 40rpx;
+}

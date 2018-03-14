@@ -1,0 +1,81 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="mshop-header">
+        <view class="fl nav-active">冰箱</view>
+        <view class="fl">货架</view>
+        <view class="fl">保温柜</view>
+    </view>
+
+    <view class="mshop-container">
+        <view class="mshop-bar-left">
+            <scroll-view style="height:{{winHeight}}px" scroll-y>
+                <block wx:for="{{commodityList}}" wx:for-index="idx" wx:for-item="itemName" wx:key="mshopTitle">
+                    <view class="pos_relative {{curNav == idx ? 'bar-active' : ''}}" data-index="{{idx}}" id="{{idx}}" data-id="{{itemName.id}}" bindtap="navLeft">
+                        {{itemName.mshopTitle}}
+                        <text class="icon-num pos_absolute hide">{{}}</text>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+
+        <view class="mshop-bar-right">
+            <scroll-view style="height:{{winHeight}}px" bindscroll="scrollChange" scroll-y class="mshop-scroll" scroll-into-view="{{'commodity'+scrollTopId}}" enable-back-to-top="{{true}}" scroll-with-animation="{{true}}">
+                <block wx:for="{{commoditNumArr}}" wx:for-item="item" wx:for-index="commodityIndex" wx:key="mshopTitle">
+                    <view id="{{'commodity'+commodityIndex}}" class="mshop-bar">
+                        <view class="mshop-bar-title">
+                            <view class="bar-border-left fl"></view>{{item.mshopTitle}}</view>
+                        <view class="{{item.discount<=0||item.discount==''?'mshop-title-tips hide':'mshop-title-tips'}}">以下商品满
+                            <text>{{item.fullCut}}</text>件,打
+                            <text>{{item.discount}}</text>折</view>
+
+                        <view class="commodity" data-index="parentIndex" wx:for="{{item.detial}}" wx:for-item="itemDetial" wx:key="*this">
+                            <view class="commodity-img">
+                                <image mode="aspectFit" src="{{itemDetial.commoditySrc}}" lazy-load="{{true}}" />
+                            </view>
+                            <view class="commodity-detail">
+                                <view class="commodity-detail-body">
+                                    <view class="commodity-title">{{itemDetial.commodityTitle}}</view>
+                                    <view>剩余:
+                                        <text>{{itemDetial.surplus}}</text>
+                                    </view>
+                                    <view class="commodity-price pos_relative">
+                                        <text>￥</text>
+                                        <text>{{itemDetial.price}}</text>
+                                        <view>
+                                            <view data-index="{{index}}" data-parentindex="{{commodityIndex}}" data-add="{{itemDetial.add==''?0:itemDetial.add}}" data-surplus="{{itemDetial.surplus}}" class="commodity-minus pos_absolute {{itemDetial.add!=0 ? '' : 'hide'}}" bindtap="commodityMinus">-</view>
+                                            <text data-index="{{index}}" class="commodity-num pos_absolute {{itemDetial.add!=0 ? '' : 'hide'}}">{{itemDetial.add}}</text>
+                                            <view data-index="{{index}}" data-parentindex="{{commodityIndex}}" data-add="{{itemDetial.add==''?0:itemDetial.add}}" data-surplus="{{itemDetial.surplus}}" bindtap="commodityPlus" class="commodity-plus pos_absolute">+</view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+    </view>
+
+    <view class="modal-pop pos_fixed"></view>
+
+    <view class="mshop-footer pos_relative">
+        <view class="pos_absolute shopCart">
+          <view class="mshopCartTitle">
+            <view class="fr pos_relative">
+              <image class="pos_absolute" style="width:24rpx;height:23rpx;left:-30rpx;top:20rpx;" src="../../images/remove.png" mode="aspectFit" lazy-load="{{true}}" /> 
+              清空
+            </view>
+            
+            <text class="fl">冰箱</text>
+          </view>
+        </view>
+
+        <view class="shopping-img pos_absolute">
+            <image src="../../images/shopping.png" mode="aspectFit" lazy-load="{{true}}" />
+        </view>
+        <view>
+            <text class="footer-text">请选择商品</text>
+            <button class="mshop-submit fr">结算</button>
+        </view>
+    </view>
+</view>
