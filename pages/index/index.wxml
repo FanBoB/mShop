@@ -56,7 +56,7 @@
         </view>
     </view>
 
-    <view class="modal-pop pos_fixed {{cardIs?'':'hide'}}"></view>
+    <view class="modal-pop pos_fixed {{cardIs?'':'hide'}}"  bindtap="cartView"></view>
 
     <view class="mshop-footer pos_relative">
         <scroll-view scroll-y scroll-with-animation="{{true}}" class="pos_absolute shopCart {{cardIs?'':'hide'}}">
