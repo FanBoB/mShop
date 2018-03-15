@@ -203,7 +203,9 @@
 }
 
 .footer-text {
-  margin-left: 174rpx;
+  width:510rpx;
+  display: inline-block;
+  text-indent: 174rpx;
   font-size: 34rpx;
   line-height: 102rpx;
 }

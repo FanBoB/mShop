@@ -56,11 +56,11 @@
         </view>
     </view>
 
-    <view class="modal-pop pos_fixed hide"></view>
+    <view class="modal-pop pos_fixed {{cardIs?'':'hide'}}"></view>
 
     <view class="mshop-footer pos_relative">
-        <scroll-view scroll-y scroll-with-animation="{{true}}" class="pos_absolute shopCart">
-          <view class="mshopCartTitle hide">
+        <scroll-view scroll-y scroll-with-animation="{{true}}" class="pos_absolute shopCart {{cardIs?'':'hide'}}">
+          <view class="mshopCartTitle">
             <view class="fr pos_relative">
               <image class="pos_absolute" style="width:24rpx;height:23rpx;left:-30rpx;top:20rpx;" src="../../images/remove.png" mode="aspectFit" lazy-load="{{true}}" /> 
               清空
@@ -69,10 +69,10 @@
           </view>
 
           <view class="mshopCartMain">
-             <view class="specialOfferTitle hide">
+             <view class="specialOfferTitle">
               <text>特价商品</text>
             </view> 
-            <view class="specialOfferDetial hide">
+            <view class="specialOfferDetial">
               <block>
                 <view class="pos_relative specialOfferList">
                   <text class="specialOfferInformation">星巴克星冰乐咖啡味281ml</text>

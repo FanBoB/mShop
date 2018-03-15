@@ -9,6 +9,7 @@ Page({
     listHeight: [],
     commoditUpdate: [],
     commoditIndex:[],
+    cardIs:false,
 
     commodityList: [
       {
@@ -240,6 +241,10 @@ Page({
   },
   cartView:function(event){
     let commoditUpdateLenth = this.data.commoditUpdate.length;
-    // if()
+    if (commoditUpdateLenth>0){
+      this.setData({
+        cardIs: !this.data.cardIs
+      })
+    }
   }
 })
