@@ -74,9 +74,9 @@
                 <view class="pos_relative specialOfferList">
                   <view class="specialOfferInformation">{{item.commodityTitle}}</view>
                   <text class="pos_absolute mshopCarPrice">￥{{item.price}}</text>
-                  <view class="commodity-minus cartMinus pos_absolute {{item.add!=0?'':'hide'}}">-</view>
+                  <view data-index="{{index}}" class="commodity-minus cartMinus pos_absolute {{item.add!=0?'':'hide'}}">-</view>
                   <text class="commodity-num cartNum pos_absolute">{{item.add}}</text>
-                  <view class="commodity-plus cartPlus pos_absolute {{item.add>=item.surplus?'no-active':''}}">+</view>
+                  <view data-index="{{index}}" bindtap="cartPlus" class="commodity-plus cartPlus pos_absolute {{item.add>=item.surplus?'no-active':''}}">+</view>
                 </view>
               </block>
             </view>
@@ -91,7 +91,7 @@
              <text class="footer-text" wx:else bindtap="cartView">合计：{{total}}</text> 
             <!-- <text class="offer-text">合计：28.5</text>
             <text class="offer pos_absolute">优惠:16.5</text> -->
-            <button class="mshop-submit fr">结算</button>
+            <button class="mshop-submit fr {{total<=0?'':'mshop-submit-active'}}">结算</button>
         </view>
     </view>
 </view>

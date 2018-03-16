@@ -10,6 +10,7 @@ Page({
     commoditUpdate: [],
     commoditIndex:[],
     cardIs:false,
+    total:0,
 
     commodityList: [
       {
@@ -257,5 +258,20 @@ Page({
         cardIs: !this.data.cardIs
       })
     }
-  }
+  },
+  // cartPlus:function(event){
+  //   let index = event.target.dataset.index;
+  //   let commoditUpdate = this.data.commoditUpdate;
+  //   let add = commoditUpdate[index].add;  //当前数量
+  //   let surplus = commoditUpdate[index].surplus;  //剩余数量
+
+  //   if (add => surplus){
+  //     add++;
+  //     commoditUpdate[index].add = add;
+  //   }
+
+  //   this.setData({
+  //     commoditUpdate: commoditUpdate
+  //   })
+  // }
 })

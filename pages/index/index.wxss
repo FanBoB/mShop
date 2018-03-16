@@ -197,6 +197,9 @@
   color: #fff;
   border-radius: 0;
 }
+.mshop-submit-active{
+  background: #8dac6c;
+}
 
 .mshop-submit::after {
   border: none;
