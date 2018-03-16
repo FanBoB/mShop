@@ -245,14 +245,13 @@
 .mshopCartTitle view, .mshopCartTitle text{
   font-size: 22rpx;
 }
-.specialOfferTitle{
-  font-size: 18rpx;
-  color: #8eac6f;
-  text-indent: 30rpx;
-  line-height: 81rpx;
-}
+
 .specialOfferInformation{
   padding-left: 30rpx;
+  width: 250rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .specialOfferList{
   line-height: 54rpx;

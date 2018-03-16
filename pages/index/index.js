@@ -18,7 +18,7 @@ Page({
         fullCut: 2,
         id: 1,
         detial: [
-          { commoditySrc: "../../images/1.jpg", commodityTitle: "星巴克星冰乐咖啡味181ml", surplus: '1', price: 10, foodid: 1 },
+          { commoditySrc: "../../images/1.jpg", commodityTitle: "星巴克星冰乐咖啡味181ml星巴克星冰乐咖啡味181ml", surplus: '1', price: 10, foodid: 1 },
           { commoditySrc: "../../images/1.jpg", commodityTitle: "星巴克星冰乐咖啡味281ml", surplus: '2', price: 20, foodid: 2 },
           { commoditySrc: "../../images/1.jpg", commodityTitle: "星巴克星冰乐咖啡味381ml", surplus: '3', price: 30, foodid: 3 },
           { commoditySrc: "../../images/1.jpg", commodityTitle: "星巴克星冰乐咖啡味481ml", surplus: '4', price: 40, foodid: 4 },
@@ -169,6 +169,7 @@ Page({
     let commoditNum =  commoditNumArr[parentIndex].detial[index]; //增加当前商品数量
     let arr = this.data.commoditUpdate;
     let isBl = true;
+    let total = 0;
 
     thisNum++;
     if (thisNum > 0 && thisNum <= surplus){  //如果商品增加并且不能大于剩余数量 则更新 数据 和 增加商品的列  
@@ -186,10 +187,15 @@ Page({
       if (isBl){
         arr.push(commoditNum);
       }
+
+      for (let i = 0; i < arr.length; i++) {
+        total += arr[i].price; //金额合计
+      }
       
       this.setData({
         commoditNumArr: commoditNumArr,
-        commoditUpdate: arr
+        commoditUpdate: arr,
+        total: total
       })
     } else {
       return
@@ -206,6 +212,7 @@ Page({
     let commoditNum = commoditNumArr[parentIndex].detial[index]; //减少当前商品数量
     let arr = this.data.commoditUpdate;
     let isBl = true;
+    let total = 0;
 
     thisNum--;
 
@@ -230,9 +237,13 @@ Page({
         arr.push(commoditNum);
       }
 
+      for (let i = 0; i < arr.length;i++){
+        total += arr[i].price; //金额合计
+      }
       this.setData({
         commoditNumArr: commoditNumArr,
-        commoditUpdate: arr
+        commoditUpdate: arr,
+        total: total
       })
     }else{
       return;
