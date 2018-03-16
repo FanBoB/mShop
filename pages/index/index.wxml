@@ -72,7 +72,7 @@
             <view class="specialOfferDetial">
               <block wx:for="{{commoditUpdate}}">
                 <view class="pos_relative specialOfferList">
-                  <text class="specialOfferInformation">{{item.commodityTitle}}</text>
+                  <view class="specialOfferInformation">{{item.commodityTitle}}</view>
                   <text class="pos_absolute mshopCarPrice">￥{{item.price}}</text>
                   <view class="commodity-minus cartMinus pos_absolute {{item.add!=0?'':'hide'}}">-</view>
                   <text class="commodity-num cartNum pos_absolute">{{item.add}}</text>

@@ -254,11 +254,13 @@
   white-space: nowrap;
 }
 .specialOfferList{
+  margin-top: 10rpx;
   line-height: 54rpx;
   margin-bottom:26rpx;
 }
 .mshopCarPrice{
   right: 33%;
+  top:0;
   color: #e6554e;
 }
 .offer{
