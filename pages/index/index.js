@@ -9,6 +9,7 @@ Page({
     listHeight: [],
     commoditUpdate: [],
     commoditIndex:[],
+    commoditNumArr:[],  //原数据copy  增加 add  字段
     cardIs:false,
     total:0,
 
