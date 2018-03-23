@@ -60,7 +60,7 @@
 
     <view class="mshop-footer pos_relative">
         <scroll-view scroll-y scroll-with-animation="{{true}}" class="pos_absolute shopCart {{cardIs?'':'hide'}}">
-          <view class="mshopCartTitle">
+          <view class="mshopCartTitle {{commoditUpdate.length<=0?'hide':''}}">
             <view class="fr pos_relative">
               <image class="pos_absolute" style="width:24rpx;height:23rpx;left:-30rpx;top:20rpx;" src="../../images/remove.png" mode="aspectFit" lazy-load="{{true}}" /> 
               清空
@@ -74,7 +74,7 @@
                 <view class="pos_relative specialOfferList">
                   <view class="specialOfferInformation">{{item.commodityTitle}}</view>
                   <text class="pos_absolute mshopCarPrice">￥{{item.price}}</text>
-                  <view data-index="{{index}}" class="commodity-minus cartMinus pos_absolute {{item.add!=0?'':'hide'}}">-</view>
+                  <view data-index="{{index}}" bindtap="cartMinus" class="commodity-minus cartMinus pos_absolute {{item.add!=0?'':'hide'}}">-</view>
                   <text class="commodity-num cartNum pos_absolute">{{item.add}}</text>
                   <view data-index="{{index}}" bindtap="cartPlus" class="commodity-plus cartPlus pos_absolute {{item.add>=item.surplus?'no-active':''}}">+</view>
                 </view>

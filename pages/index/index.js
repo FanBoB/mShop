@@ -176,6 +176,8 @@ Page({
     thisNum++;
     if (thisNum > 0 && thisNum <= surplus){  //如果商品增加并且不能大于剩余数量 则更新 数据 和 增加商品的列  
       commoditNum.add = thisNum;
+      commoditNum.parentIndex = parentIndex;
+      commoditNum.commoditIndex = index;
 
       if(arr.length>0){
         for(let i=0;i<arr.length;i++){
@@ -190,8 +192,8 @@ Page({
         arr.push(commoditNum);
       }
 
-      for (let i = 0; i < arr.length; i++) {
-        total += arr[i].price; //金额合计
+      for (var i = 0; i < arr.length; i++) {
+        total += (arr[i].price * arr[i].add); //金额合计
       }
       
       this.setData({
@@ -199,8 +201,6 @@ Page({
         commoditUpdate: arr,
         total: total
       })
-    } else {
-      return
     }
    
     // console.log(this.data.commoditUpdate)
@@ -220,6 +220,8 @@ Page({
 
     if (thisNum >= 0 && thisNum < surplus){
       commoditNum.add = thisNum;
+      commoditNum.parentIndex = parentIndex;
+      commoditNum.commoditIndex = index;
 
       if (arr.length > 0) {
         for (let i = 0; i < arr.length; i++) {
@@ -240,15 +242,13 @@ Page({
       }
 
       for (let i = 0; i < arr.length;i++){
-        total += arr[i].price; //金额合计
+        total += (arr[i].price * arr[i].add); //金额合计
       }
       this.setData({
         commoditNumArr: commoditNumArr,
         commoditUpdate: arr,
         total: total
       })
-    }else{
-      return;
     }
     // console.log(this.data.commoditUpdate)
   },
@@ -260,19 +260,72 @@ Page({
       })
     }
   },
-  // cartPlus:function(event){
-  //   let index = event.target.dataset.index;
-  //   let commoditUpdate = this.data.commoditUpdate;
-  //   let add = commoditUpdate[index].add;  //当前数量
-  //   let surplus = commoditUpdate[index].surplus;  //剩余数量
+  cartPlus:function(event){
+    let index = event.target.dataset.index;
+    let commoditNumArr = this.data.commoditNumArr;
+    let commoditUpdate = this.data.commoditUpdate;
+    let add = commoditUpdate[index].add;  //当前数量
+    let surplus = commoditUpdate[index].surplus;  //剩余数量
+    let parentIndex = commoditUpdate[index].parentIndex;  //总数据 索引值
+    let commoditIndex = commoditUpdate[index].commoditIndex;  //总数据 item 索引
+    let total = this.data.total;
+   
+    var arr;
+    arr = commoditNumArr;
+    let commoditNum = arr[parentIndex].detial[commoditIndex]; 
 
-  //   if (add => surplus){
-  //     add++;
-  //     commoditUpdate[index].add = add;
-  //   }
+    if (add < surplus){
+      total = total + commoditUpdate[index].price;
+      add++;
+      arr[parentIndex].detial[commoditIndex].add++;
+      commoditUpdate[index].add = add;
+    }
 
-  //   this.setData({
-  //     commoditUpdate: commoditUpdate
-  //   })
-  // }
+    this.setData({
+      commoditUpdate: commoditUpdate,
+      commoditNumArr: arr,
+      total: total
+    })
+
+    console.log(commoditNumArr)
+  },
+  cartMinus:function(event){
+    let index = event.target.dataset.index;
+    let commoditNumArr = this.data.commoditNumArr;
+    let commoditUpdate = this.data.commoditUpdate;
+    let add = commoditUpdate[index].add;  //当前数量
+    let surplus = commoditUpdate[index].surplus;  //剩余数量
+    let parentIndex = commoditUpdate[index].parentIndex;  //总数据 索引值
+    let commoditIndex = commoditUpdate[index].commoditIndex;  //总数据 item 索引
+    let total = this.data.total;
+    let cardIs = this.data.cardIs;
+
+    var arr;
+    arr = commoditNumArr;
+    let commoditNum = arr[parentIndex].detial[commoditIndex];
+
+    if (add>0) {
+      add--;
+      total = total - commoditUpdate[index].price;
+      arr[parentIndex].detial[commoditIndex].add--;
+      commoditUpdate[index].add = add;
+      if (add <= 0) {
+        add = 0;
+        total = 0;
+        arr[parentIndex].detial[commoditIndex].add = 0;
+        commoditUpdate[index].add = 0;
+        commoditUpdate.splice(index, 1);
+        cardIs = false;
+      }
+    } 
+
+    this.setData({
+      commoditUpdate: commoditUpdate,   //传递后端的数据对象
+      commoditNumArr: arr,  //copy 原数据
+      total: total, //金额合计
+      cardIs: cardIs  //modal背景判断
+    })
+
+    // console.log(commoditUpdate)
+  }
 })
